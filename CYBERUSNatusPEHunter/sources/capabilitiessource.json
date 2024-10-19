@@ -1,0 +1,185 @@
+{
+    "1": {
+        "NAME":"create process on Windows",
+        "API_LIST":[
+            "WinExec",
+            "CreateProcess",
+            "ShellExecute",
+            "ShellExecuteEx",
+            "CreateProcessAsUser",
+            "CreateProcessWithLogon",
+            "CreateProcessWithToken",
+            "CreateProcessInternal",
+            "NtCreateUserProcess",
+            "NtCreateProcess",
+            "NtCreateProcessEx",
+            "ZwCreateProcess",
+            "ZwCreateProcessEx",
+            "ZwCreateUserProcess",
+            "RtlCreateUserProcess"
+        ],
+        "MBC": "Process::Create Process [C0017]",
+        "ATTCK": "NONE"
+    },
+    "2": {
+        "NAME":"enumerate process modules",
+        "API_LIST":[
+            "OpenProcess",
+            "CloseHandle",
+            "K32EnumProcessModules",
+            "K32EnumProcessModulesEx",
+            "K32EnumProcesses",
+            "EnumProcessModules",
+            "EnumProcessModulesEx",
+            "EnumProcesses",
+            "Module32First",
+            "Module32Next"
+        ],
+        "MBC": "NONE",
+        "ATTCK": "Discovery::Process Discovery [T1057]"
+    },
+    "3": {
+        "NAME":"get hostname",
+        "API_LIST":[
+            "GetComputerName",
+            "GetComputerNameEx",
+            "GetComputerObjectName",
+            "gethostname"
+        ],
+        "MBC": "Discovery::System Information Discovery [E1082]",
+        "ATTCK": "Discovery::System Information Discovery [T1082]"
+    },
+    "4": {
+        "NAME":"get system information on Windows",
+        "API_LIST":[
+            "GetSystemInfo",
+            "GetNativeSystemInfo",
+            "NtQuerySystemInformation",
+            "NtQuerySystemInformationEx",
+            "RtlGetNativeSystemInformation",
+            "ZwQuerySystemInformation",
+            "ZwQuerySystemInformationEx"
+        ],
+        "MBC": "NONE",
+        "ATTCK": "Discovery::System Information Discovery [T1082]"
+    },
+    "5": {
+        "NAME":"inject dll",
+        "API_LIST":[
+            "GetModuleHandle",
+            "GetModuleHandleEx"
+        ],
+        "MBC": "NONE",
+        "ATTCK": "Defense Evasion::Process Injection::Dynamic-link Library Injection [T1055.001]"
+    },
+    "6": {
+        "NAME":"inject shellcode using window subclass procedure",
+        "API_LIST":[
+            "PostMessage",
+            "SendNotifyMessage"
+        ],
+        "MBC": "Defense Evasion::Process Injection [E1055]",
+        "ATTCK": "Defense Evasion::Process Injection [T1055]"
+    },
+    "7": {
+        "NAME":"modify access privileges",
+        "API_LIST":[
+            "AdjustTokenPrivileges",
+            "LookupPrivilegeValue"
+        ],
+        "MBC": "NONE",
+        "ATTCK": "Privilege Escalation::Access Token Manipulation [T1134]"
+    },
+    "8": {
+        "NAME":"query or enumerate registry key",
+        "API_LIST":[
+            "RegEnumKey",
+            "RegEnumKeyEx",
+            "RegQueryInfoKeyA",
+            "ZwQueryKey",
+            "ZwEnumerateKey",
+            "NtQueryKey",
+            "NtEnumerateKey",
+            "RtlCheckRegistryKey",
+            "SHEnumKeyEx",
+            "SHQueryInfoKey",
+            "SHRegEnumUSKey",
+            "SHRegQueryInfoUSKey",
+            "GetSubKeyNames",
+            "OpenBaseKey",
+            "OpenRemoteBaseKey",
+            "OpenSubKey"
+        ],
+        "MBC": "Operating System::Registry::Query Registry Key [C0036.005]",
+        "ATTCK": "Discovery::Query Registry [T1012]"
+    },
+    "9": {
+        "NAME":"query or enumerate registry value",
+        "API_LIST":[
+            "RegGetValue",
+            "RegEnumValue",
+            "RegQueryValue",
+            "RegQueryValueEx",
+            "RegQueryMultipleValues",
+            "ZwQueryValueKey",
+            "ZwEnumerateValueKey",
+            "NtQueryValueKey",
+            "NtEnumerateValueKey",
+            "RtlQueryRegistryValues",
+            "SHGetValue",
+            "SHEnumValue",
+            "SHRegGetInt",
+            "SHRegGetPath",
+            "SHRegGetValue",
+            "SHQueryValueEx",
+            "SHRegGetUSValue",
+            "SHOpenRegStream",
+            "SHRegEnumUSValue",
+            "SHOpenRegStream2",
+            "SHRegQueryUSValue",
+            "SHRegGetBoolUSValue",
+            "SHRegGetValueFromHKCUHKLM",
+            "SHRegGetBoolValueFromHKCUHKLM",
+            "GetValue",
+            "GetValueKind",
+            "GetValueNames"
+        ],
+        "MBC": "Operating System::Registry::Query Registry Value [C0036.006]",
+        "ATTCK": "Discovery::Query Registry [T1012]"
+    },
+    "10": {
+        "NAME":"query service status",
+        "API_LIST":[
+            "QueryServiceStatusEx",
+            "QueryServiceStatus"
+        ],
+        "MBC": "NONE",
+        "ATTCK": "Discovery::System Service Discovery [T1007]"
+    },
+    "11": {
+        "NAME":"shutdown system",
+        "API_LIST":[
+            "ExitWindowsEx",
+            "ExitWindows",
+            "InitiateSystemShutdownEx",
+            "InitiateSystemShutdown",
+            "InitiateShutdown"
+        ],
+        "MBC": "NONE",
+        "ATTCK": "Impact::System Shutdown/Reboot [T1529]"
+    },
+    "12": {
+        "NAME":"terminate process",
+        "API_LIST":[
+            "Kill",
+            "WaitForExit",
+            "WaitForExitAsync",
+            "Exit",
+            "TerminateProcess",
+            "NtTerminateProcess",
+            "ExitProcess"
+        ],
+        "MBC": "Process::Terminate Process [C0018]",
+        "ATTCK": "NONE"
+    }
+}
