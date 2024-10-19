@@ -1,9 +1,9 @@
 
 # CYBERUS NATUS PEHunter
 
-CYBERUS NATUS PEHunter is a comprehensive tool designed to analyze PE files and extract vital metadata, import/export information, suspicious behavior, and potential indicators of compromise (IOC). It is particularly useful in malware analysis and threat intelligence workflows. The tool offers several command-line options for targeted analysis based on the user’s needs.
+CYBERUS NATUS PEHunter is a comprehensive tool designed to analyze PE files and extract evidence from them, such as metadata, import/export information, suspicious behavior, and indicators of potential compromise (IOC). It is particularly useful in malware analysis and threat intelligence workflows. The tool offers a variety of command-line options for targeted analysis based on the user's needs.
 
-## Features
+## Features Overview
 
 - **Metadata Extraction**: Extract detailed metadata such as PE timestamp, checksum, and subsystem information, offering a thorough overview of the file's attributes.
   
@@ -37,11 +37,15 @@ CYBERUS NATUS PEHunter is a comprehensive tool designed to analyze PE files and 
 
 - **String Behavior Analysis**: Analyzes strings within the PE file, detecting common malicious patterns or anomalous strings that could indicate C2 communication, encoded payloads, or sensitive data.
 
+- **String Logical Analysis**: Analyzes strings within the PE file, detecting possible string values ​​in raw data.
+
 - **XOR Ratio Detection**: Evaluates the XOR delta ratio to detect obfuscation techniques that involve XOR encoding, a common tactic used in malware to hide its payload.
 
 - **Section Extraction**: Extracts specific sections from the binary for deeper offline analysis, useful in situations where only certain parts of the binary need further investigation.
 
 - **Binary Behavior Detection**: Analyzes the binary behavior, including its interaction with system resources and external connections, to detect suspicious activity.
+
+- **Driver Behavior Detection**: Analyzes the driver behavior, including its interaction with system resources and external connections, to detect suspicious activity.
 
 - **Botnet C2 IP Detection**: Cross-references the file with FeodoTracker to detect known botnet command and control (C2) IP addresses.
 
@@ -83,7 +87,7 @@ Below are the primary command-line arguments supported by CYBERUS NATUS PEHunter
 | `--strbehaviour`        | Analyzes string behavior in the file.                   |
 | `--strlogical`          | Displays logical strings in the file.                   |
 | `--xorratio`            | Shows XOR ratio details.                                |
-| `--sectionInit`         | Extracts a specific section from the file.              |
+| `--sectionextraction`   | Extracts a specific section from the file.              |
 | `--binarybehaviour`     | Analyzes binary behavior of the file.                   |
 | `--drivebehaviour`      | Detects driver behavior.                                |
 | `--botnetIP`            | Detects botnet C2 IPs using FeodoTracker.               |
@@ -97,37 +101,79 @@ Below are the primary command-line arguments supported by CYBERUS NATUS PEHunter
 | `--pii`                 | Extracts potential PII values.                          |
 | `--dlllist`             | Extracts a list of DLLs used by the file.               |
 | `--capability`          | Detects capabilities present in the PE file.            |
+| `--all`                 | Run all available modules.                              |
 
 ## Installation
 
 To install the CYBERUS NATUS PEHunter tool, clone the repository and install the required dependencies:
 
 ```bash
-git clone https://github.com/yourrepo/cyberus-natus-pehunter.git
+git clone https://github.com/BrsDincer/cyberus-natus-pehunter/cyberus-natus-pehunter.git
 cd cyberus-natus-pehunter
 pip install -r requirements.txt
 ```
 
+Installation script for Ubuntu/Linux:
+
+```bash
+sudo bash install.sh
+```
+
+Installation script for Python setup.py:
+
+```bash
+sudo python3 setup.py install
+or
+sudo python setup.py install
+```
+
+Python Versions:
+
+- **Python 3.10.0**
+- **Python 3.12.7**
+
+Requirements Versions:
+
+- **yara-python==4.5.1**
+- **pefile==2024.8.26**
+- **python-magic-bin==0.4.14**
+- **cryptography==43.0.1**
+- **asn1crypto==1.5.1**
+- **requests==2.32.3**
+- **apiosintDS==2.0.3**
+
 ## Example Usage
 
-Analyze a PE file for suspicious imports:
 
 ```bash
-python pehunter.py --simport /path/to/pefile
+python .\CYBERUSPEHunter.py <TARGET_FILE> --all
 ```
-
-Detect YARA rules from a specific folder:
 
 ```bash
-python pehunter.py --yaraFolder /path/to/yara/folder /path/to/pefile
+python .\CYBERUSPEHunter.py <TARGET_FILE> --all --save True
 ```
-
-Extract and analyze PII values from the binary:
 
 ```bash
-python pehunter.py --pii /path/to/pefile
+python .\CYBERUSPEHunter.py <TARGET_FILE> --yaraFile url.yar
 ```
+
+```bash
+python .\CYBERUSPEHunter.py <TARGET_FILE> --yaraFolder yara_rule
+```
+
+```bash
+python .\CYBERUSPEHunter.py <TARGET_FILE> -sI -nI -m
+```
+
+```bash
+python .\CYBERUSPEHunter.py <TARGET_FILE> --sectionextraction all
+```
+
+## Video PoC
+
+https://github.com/user-attachments/assets/e4d5963b-0b6c-49b9-bc62-2d38e83eb35c
+
 
 ## Contributing
 
-Contributions are welcome! Please submit pull requests or open issues for any bugs or feature requests.
+Contributions are welcome! This tool was created for researchers and cybersecurity experts working in the CTI field. Please submit pull requests or open issues for any bugs or feature requests.
