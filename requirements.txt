@@ -1,0 +1,7 @@
+yara-python==4.5.1
+pefile==2024.8.26
+python-magic-bin==0.4.14
+cryptography==43.0.1
+asn1crypto==1.5.1
+requests==2.32.3
+apiosintDS==2.0.3
