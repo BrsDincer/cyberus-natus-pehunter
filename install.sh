@@ -15,6 +15,7 @@ apt -y install python3
 apt -y install python3-dev
 apt -y install python3-pip
 apt -y install libssl-dev
+apt -y install libmagic-dev
 apt -y install swig
 
 echo -e "\n[INFO] Installing requirements -setup.py [INFO]\n"
