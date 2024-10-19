@@ -116,7 +116,7 @@ Below are the primary command-line arguments supported by CYBERUS NATUS PEHunter
 To install the CYBERUS NATUS PEHunter tool, clone the repository and install the required dependencies:
 
 ```bash
-git clone https://github.com/BrsDincer/cyberus-natus-pehunter/cyberus-natus-pehunter.git
+git clone https://github.com/BrsDincer/cyberus-natus-pehunter.git
 cd cyberus-natus-pehunter
 pip install -r requirements.txt
 ```
