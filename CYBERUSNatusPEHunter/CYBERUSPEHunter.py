@@ -137,8 +137,16 @@ else:
 if isTrueFile:
     fileEngine = open(targetFile,"rb")
     fileRaw = fileEngine.read()
-    peEngine = pefile.PE(data=fileRaw,fast_load=True,max_repeated_symbol=120)
-    peEngine.parse_data_directories()
+    try:
+        peEngine = pefile.PE(data=fileRaw,fast_load=True,max_repeated_symbol=120)
+        peEngine.parse_data_directories()
+        isPERead = True
+    except pefile.PEFormatError:
+        ReturnInitialInfo("DOS HEADER MAGIC NOT FOUND")
+        isPERead = False
+    except Exception as err:
+        ReturnInitialInfo(err)
+        isPERead = False
     isPERead = True
 else:
     isPERead = False
