@@ -103,6 +103,11 @@ Below are the primary command-line arguments supported by CYBERUS NATUS PEHunter
 | `--capability`          | Detects capabilities present in the PE file.            |
 | `--all`                 | Run all available modules.                              |
 
+## Folders
+
+- You can add any **YARA rules** you want that are appropriate for your goal in the `yara_rules` file location.
+- You can add your own capability detection entries to the `capabilitiessource.json` file for your research purposes without **breaking the file format**.
+
 ## Installation
 
 To install the CYBERUS NATUS PEHunter tool, clone the repository and install the required dependencies:
