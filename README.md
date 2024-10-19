@@ -110,6 +110,9 @@ Below are the primary command-line arguments supported by CYBERUS NATUS PEHunter
 
 ## Installation
 
+**NOTE**:
+- Windows users need to edit the **requirements.txt** file and install `python-magic-bin` instead of `python-magic`.
+
 To install the CYBERUS NATUS PEHunter tool, clone the repository and install the required dependencies:
 
 ```bash
@@ -141,7 +144,7 @@ Requirements Versions:
 
 - **yara-python==4.5.1**
 - **pefile==2024.8.26**
-- **python-magic-bin==0.4.14**
+- **python-magic-bin==0.4.14** or **python-magic==0.4.27**
 - **cryptography==43.0.1**
 - **asn1crypto==1.5.1**
 - **requests==2.32.3**
